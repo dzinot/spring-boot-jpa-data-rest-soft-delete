@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${db.host:localhost}:${db.port:3306}/${db.name:softdelete}?useSSL=false
+    username: ${db.uid:root}
+    password: ${db.pwd:nemapassword}
+    driver-class-name: com.mysql.jdbc.Driver
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    hibernate:
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: validate
