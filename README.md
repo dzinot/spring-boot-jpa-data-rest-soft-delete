@@ -13,7 +13,7 @@ This returns our custom [SoftDeletesRepositoryImpl](src/main/java/com/kristijang
 
 There's a [BaseEntity](src/main/java/com/kristijangeorgiev/softdelete/model/entity/BaseEntity.java) which all of our entities must extend, that contains the necessary field to enable us to use this functionality.
 
-Now for every repository interface, instead of extending the PagingAndSortingRepository we extend our [SoftDeletesRepository](src/main/java/com/kristijangeorgiev/softdelete/repository/SoftDeletesRepository.java) ([UserRepository](src/main/java/com/kristijangeorgiev/softdelete/repository/UserRepository.java) example).
+Now for every repository interface, instead of extending the JpaRepository we extend our [SoftDeletesRepository](src/main/java/com/kristijangeorgiev/softdelete/repository/SoftDeletesRepository.java) ([UserRepository](src/main/java/com/kristijangeorgiev/softdelete/repository/UserRepository.java) example).
 
 ## Installing
 
