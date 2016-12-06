@@ -18,12 +18,12 @@ import javax.persistence.Converter;
 public class LocalDateAttributeConverter implements AttributeConverter<LocalDateTime, Timestamp> {
 
 	@Override
-	public Timestamp convertToDatabaseColumn(LocalDateTime locDateTime) {
-		return (locDateTime == null ? null : Timestamp.valueOf(locDateTime));
+	public Timestamp convertToDatabaseColumn(LocalDateTime localDateTime) {
+		return (localDateTime == null ? null : Timestamp.valueOf(localDateTime));
 	}
 
 	@Override
-	public LocalDateTime convertToEntityAttribute(Timestamp sqlTimestamp) {
-		return (sqlTimestamp == null ? null : sqlTimestamp.toLocalDateTime());
+	public LocalDateTime convertToEntityAttribute(Timestamp timestamp) {
+		return (timestamp == null ? null : timestamp.toLocalDateTime());
 	}
 }
