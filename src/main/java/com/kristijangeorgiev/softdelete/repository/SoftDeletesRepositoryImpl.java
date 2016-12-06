@@ -30,7 +30,7 @@ import org.springframework.util.Assert;
 
 /**
  * 
- * @author dzinot
+ * @author Kristijan Georgiev
  *
  * @param <T> the class of the entity
  * @param <ID> the ID class of the entity
