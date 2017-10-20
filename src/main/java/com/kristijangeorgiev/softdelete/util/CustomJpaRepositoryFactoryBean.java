@@ -23,6 +23,10 @@ import com.kristijangeorgiev.softdelete.repository.SoftDeletesRepositoryImpl;
 public class CustomJpaRepositoryFactoryBean<T extends JpaRepository<S, ID>, S, ID extends Serializable>
 		extends JpaRepositoryFactoryBean<T, S, ID> {
 
+	public CustomJpaRepositoryFactoryBean(Class<? extends T> repositoryInterface) {
+		super(repositoryInterface);
+	}
+
 	@Override
 	protected RepositoryFactorySupport createRepositoryFactory(EntityManager entityManager) {
 		return new CustomJpaRepositoryFactory<T, ID>(entityManager);

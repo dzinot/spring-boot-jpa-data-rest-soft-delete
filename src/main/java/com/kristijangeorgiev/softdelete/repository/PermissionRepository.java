@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.kristijangeorgiev.softdelete.model.entity.Permission;
 
 /**
+ * <h2>PermissionRepository</h2>
  * 
  * @author Kristijan Georgiev
  * 

@@ -1,9 +1,6 @@
-package com.kristijangeorgiev.softdelete.model.entity.id;
+package com.kristijangeorgiev.softdelete.model.entity.pk;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
 
 import com.kristijangeorgiev.softdelete.model.entity.RoleUser;
 
@@ -13,26 +10,23 @@ import lombok.NoArgsConstructor;
 
 /**
  * 
- * <h2>RoleUserId</h2>
+ * <h2>RoleUserPK</h2>
  * 
  * @author Kristijan Georgiev
  * 
- *         Embeddable ID class for the {@link RoleUser} entity
+ *         PK class for the {@link RoleUser} entity
  *
  */
 
 @Data
-@Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
-public class RoleUserId implements Serializable {
+public class RoleUserPK implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "role_id")
 	private Long roleId;
 
-	@Column(name = "user_id")
 	private Long userId;
 
 }

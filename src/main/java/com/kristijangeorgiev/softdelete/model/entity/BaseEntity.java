@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Version;
 
 import lombok.Data;
@@ -36,8 +38,15 @@ public class BaseEntity implements Serializable {
 
 	protected LocalDateTime deletedOn;
 
-	protected Long createdBy;
+	@PrePersist
+	protected void onCreate() {
+		this.createdOn = LocalDateTime.now();
+		this.updatedOn = LocalDateTime.now();
+	}
 
-	protected Long updatedBy;
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedOn = LocalDateTime.now();
+	}
 
 }

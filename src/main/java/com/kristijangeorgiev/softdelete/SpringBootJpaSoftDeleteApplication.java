@@ -2,6 +2,8 @@ package com.kristijangeorgiev.softdelete;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.kristijangeorgiev.softdelete.util.CustomJpaRepositoryFactoryBean;
@@ -18,6 +20,7 @@ import com.kristijangeorgiev.softdelete.util.CustomJpaRepositoryFactoryBean;
 
 @SpringBootApplication
 @EnableJpaRepositories(repositoryFactoryBeanClass = CustomJpaRepositoryFactoryBean.class)
+@EntityScan(basePackageClasses = { SpringBootJpaSoftDeleteApplication.class, Jsr310JpaConverters.class })
 public class SpringBootJpaSoftDeleteApplication {
 
 	public static void main(String[] args) {

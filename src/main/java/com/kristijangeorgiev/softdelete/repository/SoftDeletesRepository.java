@@ -15,8 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
  * 
  * @author Kristijan Georgiev
  *
- * @param <T> the class of the entity
- * @param <ID> the ID class of the entity
+ * @param <T>
+ *            the class of the entity
+ * @param <ID>
+ *            the ID class of the entity
  * 
  *            NoRepositoryBean interface for the soft delete functionality
  */

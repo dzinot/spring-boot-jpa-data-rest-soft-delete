@@ -4,9 +4,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kristijangeorgiev.softdelete.model.entity.PermissionRole;
-import com.kristijangeorgiev.softdelete.model.entity.id.PermissionRoleId;
+import com.kristijangeorgiev.softdelete.model.entity.pk.PermissionRolePK;
 
 /**
+ * <h2>PermissionRoleRepository</h2>
  * 
  * @author Kristijan Georgiev
  * 
@@ -17,6 +18,6 @@ import com.kristijangeorgiev.softdelete.model.entity.id.PermissionRoleId;
 
 @Repository
 @Transactional
-public interface PermissionRoleRepository extends SoftDeletesRepository<PermissionRole, PermissionRoleId> {
+public interface PermissionRoleRepository extends SoftDeletesRepository<PermissionRole, PermissionRolePK> {
 
 }

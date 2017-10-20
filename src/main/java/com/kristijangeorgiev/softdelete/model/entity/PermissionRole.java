@@ -1,15 +1,22 @@
 package com.kristijangeorgiev.softdelete.model.entity;
 
-import javax.persistence.EmbeddedId;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.kristijangeorgiev.softdelete.model.entity.id.PermissionRoleId;
+import org.hibernate.annotations.Where;
+import org.springframework.context.annotation.Lazy;
 
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.kristijangeorgiev.softdelete.model.entity.pk.PermissionRolePK;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 
@@ -21,23 +28,35 @@ import lombok.Setter;
  *
  */
 
+@Data
 @Entity
 @NoArgsConstructor
-@Setter
-@Getter
+@IdClass(PermissionRolePK.class)
+@EqualsAndHashCode(callSuper = true)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@ToString(exclude = { "permission", "role" })
 public class PermissionRole extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private PermissionRoleId id;
+	@Id
+	@Column(name = "permission_id")
+	private Long permissionId;
 
+	@Id
+	@Column(name = "role_id")
+	private Long roleId;
+
+	@Lazy
 	@ManyToOne
-	@JoinColumn(name = "permission_id", insertable = false, updatable = false)
+	@Where(clause = NOT_DELETED)
+	@JoinColumn(name = "permission_id", referencedColumnName = "id", insertable = false, updatable = false)
 	private Permission permission;
 
+	@Lazy
 	@ManyToOne
-	@JoinColumn(name = "role_id", insertable = false, updatable = false)
+	@Where(clause = NOT_DELETED)
+	@JoinColumn(name = "role_id", referencedColumnName = "id", insertable = false, updatable = false)
 	private Role role;
 
 }

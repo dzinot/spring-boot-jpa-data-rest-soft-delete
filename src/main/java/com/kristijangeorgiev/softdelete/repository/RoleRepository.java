@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.kristijangeorgiev.softdelete.model.entity.Role;
 
 /**
+ * <h2>RoleRepository</h2>
  * 
  * @author Kristijan Georgiev
  * 
