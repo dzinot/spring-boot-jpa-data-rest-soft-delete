@@ -18,16 +18,16 @@ Simple example of how to use custom JPA repository implementation for soft delet
 * Spring Data Rest endpoints merged with custom controller endpoints
 * generic methods to use in repositories (see the methods from the interface below)
 * on creation of new entity check whether a soft deleted version already exists in the database
-* BackendIdConverter for every association entity so you can use Spring Data REST to manipulate entity 
+* ```BackendIdConverter``` for every association entity so you can use Spring Data REST to manipulate entity 
   * ```http GET localhost:8080/roleUsers/1_1``` 
-  * ```http PATCH localhost:8080/roleUsers/1_1 otherField="field"```
   * ```http DELETE localhost:8080/roleUsers/1_1``` // __TODO__ 
+  * ```http PATCH localhost:8080/roleUsers/1_1 otherField="field"```
 * use ```@UniqueConstraint``` inside ```@Table``` to define unique constraints __(MUST MATCH DATABASE SCHEMA)__
   * ```@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "single" }) })```
   * ```@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "single1" }), @UniqueConstraint(columnNames = { "single2" }) })```
   * ```@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "double1", "double2" }) })```
-* CustomRepositoryRestConfigurerAdapter to register the BackendIdConverters and expose the ID fields for all entities
-* integration of the entity check functionality on create with Spring Data REST, the check is done on Spring Data REST repository endpoints POST methods
+* ```CustomRepositoryRestConfigurerAdapter``` to register the BackendIdConverters and expose the ```ID``` fields for all entities
+* integration of the entity check functionality on create with Spring Data REST, the check is done on Spring Data REST repository endpoints ```POST``` methods
 
 ## TODO
 
